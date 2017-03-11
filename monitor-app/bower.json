@@ -1,0 +1,16 @@
+{
+  "name": "application-name",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.14",
+    "angular-socket-io": "~0.7.0",
+    "angular-route": "~1.4.14",
+    "materialize": "^0.98.0",
+    "lodash": "^4.17.4"
+  }
+}

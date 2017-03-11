@@ -1,0 +1,24 @@
+div.row
+  div.col.s12
+    ul.collection
+      li(ng-repeat="member in members").collection-item.avatar.center
+        p.center.circle(ng-if="member.up", style="background-color: green;")
+            i.material-icons(ng-if="member.leader") visibility
+        p.center.circle(ng-if="!member.up", style="background-color: red;")
+
+        span {{member.name}} - {{member.url}} - {{member.id}}
+
+        form(ng-if="activeToggles")
+          div.input-field.col.s4
+            input#key.validate(type="text",ng-model="member.key")
+            label(for="key") Key
+          div.input-field.col.s4
+            input#value.validate(type="text",ng-model="member.value")
+            label(for="value") Value
+          a.waves-effect.waves-light.btn(ng-click="setToggle(member.url, member.key, member.value)") Set Toggle
+
+div.row
+  div.col.s2
+    a.waves-effect.waves-light.btn(ng-click="createToggesDir()") Toggles Init
+  div.col.s10
+    Change notification : {{ notifications | json }}
