@@ -10,6 +10,8 @@ curl http://0.0.0.0:2379/v2/members -XPOST \
 ./curl-add-member.sh member3 25
 ./start-newmember.sh 25 member3 origin=http://0.0.0.0:2380,member3=http://0.0.0.0:2580,member2=http://0.0.0.0:2480
 
+curl http://0.0.0.0:2579/v2/keys/toggles/etcd -XPUT -d value="on"
+
 # stop origin for leader election
 # restart origin
 # stop member2
