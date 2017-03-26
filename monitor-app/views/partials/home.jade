@@ -8,17 +8,19 @@ div.row
 
         span {{member.name}} - {{member.url}} - {{member.id}}
 
-        form(ng-if="activeToggles")
-          div.input-field.col.s4
-            input#key.validate(type="text",ng-model="member.key")
-            label(for="key") Key
-          div.input-field.col.s4
-            input#value.validate(type="text",ng-model="member.value")
-            label(for="value") Value
-          a.waves-effect.waves-light.btn(ng-click="setToggle(member.url, member.key, member.value)") Set Toggle
+div.row
+  div.col.s3
+    a.waves-effect.waves-light.btn(ng-click="createToggesDir()") Toggles Init
+  div.col.s9
+    Change notification : {{ notifications | json }}
 
 div.row
-  div.col.s2
-    a.waves-effect.waves-light.btn(ng-click="createToggesDir()") Toggles Init
-  div.col.s10
-    Change notification : {{ notifications | json }}
+  div.col.s12
+    form(ng-if="activeToggles")
+      div.input-field
+        input#key.validate(type="text",ng-model="member.key")
+        label(for="key") Key
+      div.input-field
+        input#value.validate(type="text",ng-model="member.value")
+        label(for="value") Value
+      a.waves-effect.waves-light.btn(ng-click="setToggle(member.key, member.value)") Set Toggle

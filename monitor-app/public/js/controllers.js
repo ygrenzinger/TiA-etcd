@@ -44,9 +44,9 @@ angular.module('myApp.controllers', []).
     }
 
     $scope.activeToggles = false;
-    $scope.setToggle = function(url, key, value) {
+    $scope.setToggle = function(key, value) {
       $http({
-        url: url + '/v2/keys/toggles/' + key,
+        url: 'http://0.0.0.0:2379/v2/keys/toggles/' + key,
         method: 'PUT',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         data: $httpParamSerializerJQLike({'value': value})
